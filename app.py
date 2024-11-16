@@ -93,6 +93,6 @@ def correct_code():
     # Perform code correction using LangChain
     corrected_code = correct_code_with_llm(code)
     return render_template('corrected_code.html', corrected_code=corrected_code)
-
+"""
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True)"""
