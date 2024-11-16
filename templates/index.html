@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Code Extractor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>GitHub Code Extractor</h1>
+            <p>Enter the GitHub URL to extract and analyze code.</p>
+        </header>
+
+        <form action="/extract_code" method="POST">
+            <div class="input-group">
+                <label for="github_url">GitHub URL:</label>
+                <input type="text" id="github_url" name="github_url" placeholder="Enter GitHub URL" required>
+            </div>
+            <button type="submit" class="submit-btn">Extract Code</button>
+        </form>
+
+        {% if code %}
+            <div class="code-display">
+                <h2>Extracted Code:</h2>
+                <pre>{{ code }}</pre>
+            </div>
+            <form action="/analyze_code" method="POST">
+                <!-- Hidden input to send the code back to the server -->
+                <input type="hidden" name="code" value="{{ code }}">
+                <button type="submit" class="analyze-btn">Analyze Code</button>
+            </form>
+        {% endif %}
+    </div>
+</body>
+</html>

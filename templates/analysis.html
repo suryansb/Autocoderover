@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Analysis Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Code Analysis Result</h1>
+        </header>
+
+        <div class="analysis-box">
+            <h2>Analysis:</h2>
+            <p>{{ analysis_result }}</p>
+        </div>
+
+        <div class="button-container">
+            <a href="/" class="home-btn">Back to Home</a>
+            <form action="/correct_code" method="POST" style="display:inline;">
+                <input type="hidden" name="code" value="{{ code }}">
+                <button class="correct-btn">Correct Code</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
